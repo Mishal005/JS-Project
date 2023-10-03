@@ -29,43 +29,34 @@
         <!-- Search container -->
         <div class = "search_container">
             <div class = "search-element">
-                <!-- <centre> -->
-                <h3>Search Movie:</h3>
+               
+                <label for "MovieName">Search by Movie</label>
                 <form action="" class="search-bar">
-                     <input type = "text" placeholder="Search Movie Title..." name = "q" /> 
-                     <button id ="btn" onclick="clickHandler()">Search</button>
-            </form>
-                <!-- </centre> -->
+                     <input type = "text" placeholder="Search Movie Title..." name = "movieName" required /> 
+                     
+                </form>
+                
+             </div>
+             <div class = "filter-element">
+        
+                    <label for "MovieYear">Search by Year</label>
+                 <!-- <h3>Search by Year:</h3> -->
+                    <form action="" class="filter-bar">
+                     <input type = "text" placeholder="Search Movie Year..." name = "movieYear" min="1800" max="9999" required /> 
+                     
+                    </form>
+                
+             </div>
+             <!-- <button id="submitBtn">Get Movie Info</button> -->
+             <button id="submitBtn" onclick="searchButton()">Search</button>
 
-                <!-- <div class = "search-list-item" id = "search-list">
-                     // list here 
-                    <div class = "Search-list-item">
-                        <div class = "search-list-thumbnail">
-                            <img src="poster.jpg">
-                        </div>
-                        <div class = "search-item-info">
-                            <h3>Blade Runner</h3>
-                                <p>2017</p> 
-                        </div>
-
-                    </div>
-
-
-
-                </div> -->
-
-            </div>
+             <!-- <button id ="btn" onclick="clickHandler()">Search</button> -->
         </div>
         <!-- end of search container -->
         <!-- result container -->
-        <div class = "container">
-            <div class= "result-container">
-                <div class = "result-grid" id = "result-grid">
-        <!-- movie information here -->
-                </div>
-
-            </div>
-
+        <div class="result-container" id="resultContainer">
+            <h2>Movie Information:</h2>
+            <ul id="movieList"></ul>
         </div>
         <!-- end of result container -->
     </div>

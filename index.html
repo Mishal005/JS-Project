@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Serach Website</title>
     <!-- font awesome icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
-     crossorigin="anonymous" 
-     referrerpolicy="no-referrer" />
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="javascript" href="javascript.js"> -->
@@ -18,51 +18,31 @@
 
 
 
-    <div class = "wrapper">
-        <!-- logo -->
-        <!-- <div class = "logo">
-            <div class = "container">
-                <p>Movie<span>Corn</span></p>
-            </div>
-        </div> -->
-        <!-- end of logo -->
-        <!-- Search container -->
-        <div class = "search_container">
-            <div class = "search-element">
-               
-                <label for "MovieName">Search by Movie</label>
-                <form action="" class="search-bar">
-                     <input type = "text" placeholder="Search Movie Title..." name = "movieName" required /> 
-                     
-                </form>
-                
-             </div>
-             <div class = "filter-element">
-        
-                    <label for "MovieYear">Search by Year</label>
-                 <!-- <h3>Search by Year:</h3> -->
-                    <form action="" class="filter-bar">
-                     <input type = "text" placeholder="Search Movie Year..." name = "movieYear" min="1800" max="9999" required /> 
-                     
-                    </form>
-                
-             </div>
-             <!-- <button id="submitBtn">Get Movie Info</button> -->
-             <button id="submitBtn" onclick="searchButton()">Search</button>
+    
+    <div class="search_container">
+        <div class="search-element">
 
-             <!-- <button id ="btn" onclick="clickHandler()">Search</button> -->
+            <h4>Search by Movie <input type="text"  name="movieName" id="search" />
+            </h4>
+            <h4>Search by Year <input type="text"  name="movieYear" id="filter" />
+            </h4>
+
+
+            <button id="searchBtn" onclick="searchButton()">Search</button>
+            <!-- </form> -->
+
         </div>
-        <!-- end of search container -->
-        <!-- result container -->
-        <div class="result-container" id="resultContainer">
-            <h2>Movie Information:</h2>
-            <ul id="movieList"></ul>
-        </div>
-        <!-- end of result container -->
+
+
     </div>
-    <!-- movie app js -->
-<script src="script.js"></script>
+    
+    <div class="result-container" id="resultContainer">
+        <!-- <h2 style="color: white;">Movie Information:</h2>  -->
+    </div>
+    
+    <script src="javascript.js"></script>
 
 
 </body>
+
 </html>

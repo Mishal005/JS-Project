@@ -1,106 +1,39 @@
-document.getElementById("submitBtn").addEventListener("click", function () {
-    var movieName = document.getElementById("movieName").value;
-    var yearLaunched = document.getElementById("yearLaunched").value;
-  
-    var apiKey = "8da1f38f";
-    var apiUrl = `https://www.omdbapi.com/?s=${movieName}&y=${yearLaunched}&apikey=${apiKey}`;
-  
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        var resultContainer = document.getElementById("resultContainer");
-        var movieList = document.getElementById("movieList");
-      }
-        if (data.Response === "True") {
-          resultContainer.style.display = "block";
-          movieList.innerHTML = "";
-  
-          data.Search.forEach(function (movie) {
-            var li = document.createElement("li");
-            li.textContent = `Title: ${movie.Title}, Year: ${movie.Year}`;
-            movieList.appendChild(li);
-          });
-        } else {
-          alert("Movies not found. Please check the information.")};
-  async function searchButton() {
-    const apiKey = "8da1f38f";
-  
-    const movieName = document.getElementById("movieName").value;
-    const yearLaunched = document.getElementById("yearLaunched").value;
-  }
-    if (!movieName) {
-      alert("Please enter a movie name.");
-      return;
-    }
-  
-    if (!yearLaunched) {
-      alert("Please enter a movie Year.");
-      return;
-    }
-  
-    let url = `http://www.omdbapi.com/?s=${movieName}&apikey=${apiKey}`;
-  
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
+const searchButton =() =>{
+
+const search = document.getElementById("search").value;
+
+const year = document.getElementById("filter").value;
+
+fetch(`https://www.omdbapi.com/?s=${search}&y=${year}&apikey=8da1f38f`)
+.then((resp)=> {
+    return resp.json();
+  })
+  .then((data) =>{
     
-      if (data.Response === "True") {
-        const resultContainer = document.getElementById("resultContainer");
-        resultContainer.style.display = "block";
-  
-        const movieList = document.getElementById("movieList");
-        movieList.innerHTML = "";
-  
-        let moviesToShow = data.Search;
-  
-        if (yearLaunched) {
-          moviesToShow = moviesToShow.filter(
-            (movie) => movie.Year >= yearLaunched
-          );
-        }
-    //   })
-      .catch((error) => console.error("Error:", error));
-    }};
-  
-        let movieItems = moviesToShow.map((movie) => {
-          const li = document.createElement("li");
-          li.classList.add("movie-item");
-          li.innerHTML = `
-              <h2>${movie.Title}</h2>
-              <p>Year: ${movie.Year}</p>
-              <img src="${movie.Poster}" alt="${movie.Title} Poster">
-          `;
-          return li;
-        });
-  
-        movieList.append(...movieItems);
-      } else {
-        displayErrorPopup("No movies found!");
-      }
-    } catch (error) {
-      console.error("Error fetching movie data:", error);
-      displayErrorPopup("Error fetching movie data. Please try again later.");
+    console.log(data);
+    // console.log(data.Search[0].Title);
+    let url=data.Search;
+    const Tag = document.getElementById("resultContainer");
+    Tag.innerHTML = "";
+    // const year = document.getElementById("filter").value;
+    console.log(year);
+    if (year) {
+      url = url.filter((movie) => movie.Year >= Number(year));
     }
-  }
+    console.log(url);
+    url.map(resultMovies);
+    function resultMovies(movie) {
+      const listItem = `
+        <div class="movieIitem"> 
+        <img src="${movie.Poster}" alt="Image not found" >
+        <p >Title: ${movie.Title}</p>
+        <p>Year: ${movie.Year}</p>
+        </div>
+        `;
+      Tag.innerHTML = Tag.innerHTML + listItem;
+    }
+  });
   
-  function displayErrorPopup(message) {
-    const popupContainer = document.createElement("div");
-    popupContainer.classList.add("popup-container");
-  
-    const popup = document.createElement("div");
-    popup.classList.add("popup");
-  
-    const closeButton = document.createElement("button");
-    closeButton.innerText = "Close";
-    closeButton.addEventListener("click", () => {
-      popupContainer.remove();
-    });
-  
-    const errorMessage = document.createElement("p");
-    errorMessage.innerText = message;
-  
-    popup.appendChild(errorMessage);
-    popup.appendChild(closeButton);
-    popupContainer.appendChild(popup);
-    document.body.appendChild(popupContainer);
-  }
+
+
+}

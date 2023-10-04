@@ -8,76 +8,62 @@ body{
 
 }
 .search_container{
-    /* margin: auto; */
+  
     width: 100%;
-    min-height: 100vh;
-    /* border: 3px solid green; */
-    padding: 5%;
+   
     background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),url(background.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
-  .search-bar{
-    width: 80%;
-    max-width: 800px;
+  .search-element{
+    width: 100%;
+    /* max-width: 1000px; */
     background: rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    border-radius: 60px;
+    /* display: flex; */
+    text-align: center;
+    border-radius: 20px;
     /* padding: 10px 20px; */
   }
-  .search-bar input{
-
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 15px 20px;
-    font-size: 20px;
-    color: #cac7ff;
-  }
-  .filter-bar{
-    width: 80%;
-    max-width: 800px;
-    background: rgba(255,255,255,0.2);
-    display: flex;
+  .result-container{
+    display: grid;
+   grid-template-columns:auto auto auto ;
+    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)),url(background.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 200vh;
     align-items: center;
-    border-radius: 60px;
-    /* padding: 10px 20px; */
-
   }
-  .filter-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 15px 20px;
-    font-size: 20px;
-    color: #cac7ff;
-  }
+  
+ .movieIitem{
+  color: white;
+ }
+ 
+  
   ::placeholder{
     color: #cac7ff;
   }
-  .button{
-    background-color: #4CAF50; /* Green */
-    border: none;
+  button{
+    background-color: burlywood;
+    border: 2px solid black;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    /* display: inline-block; */
+    font-size: 14px;
+    /* margin: 4px 2px; */
     cursor: pointer;
-  }
-      transition-duration: 0.4s;
+     transition-duration: 0.4s;
+     border-radius: 40px;
+     width: auto;
+     height: 40px;
     }
     
-    .button:hover {
-      background-color: #4CAF50; /* Green */
+    button:hover {
+      background-color: transparent; 
       color: white;
     }
 
